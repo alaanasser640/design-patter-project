@@ -9,7 +9,7 @@ public class factory {
 		realAccess no = new realAccess();
 		this.num = no.selectedproduct;
 	}
-	public Ifactory getPizza(){
+	public Ifactory getcategory(){
 	      	
 	      if(num ==1){
 	         return new Chipsy();

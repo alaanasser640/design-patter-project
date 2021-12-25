@@ -15,7 +15,7 @@ public class users {
 		proxy p = new proxy(username);
 		p.display();
 		factory f = new factory();
-		Ifactory x = f.getPizza();
+		Ifactory x = f.getcategory();
 		x.contain();
 	}
 }
