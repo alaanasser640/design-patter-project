@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class GetUserName implements EnterUser {
 	public static String userName;
+	public static String password;
 	public GetUserName() {
 		
 	}
@@ -13,9 +14,7 @@ public class GetUserName implements EnterUser {
 		System.out.println("User Name: ");
 		userName = sc.nextLine();
 		System.out.println("Password: ");
-		String password = sc.nextLine();
-		System.out.println();
-		System.out.println("Hello "+userName + " (^.^)");
-		System.out.println();
+		password = sc.nextLine();
+		
 	}
 }

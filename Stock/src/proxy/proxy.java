@@ -5,44 +5,28 @@ import java.util.List;
 
 import Stock.users;
 import facade.GetUserName;
+import singleton.authentication;
 
 public class proxy extends GetUserName implements Iauthorize{
 	realAccess access;
+	private authentication authan ;
 	String userName;
-	
+	String password;
 	GetUserName user1;
-	private List<String> users;
-	public proxy(String user)
-	{
-		
-		this.userName = user;
-		this.user1 = new GetUserName();
-		this.users = new ArrayList<String>();
-		
-		users.add("alaa");
-		users.add("mariam");
-		
-	}
 	
-	public void display()
-	{ boolean b = false;
-		for(String s : users) {
-			
-		
-		if (users.contains(user1.userName))
-		{
-			b=true;
-		}
-		
-		
+	public proxy(String user,String password)
+	{
+		this.userName = user;
+		this.password = password;
+		this.authenticate();
+	}
+	public void authenticate() {
+		authan =authentication.getInstance(this.userName,this.password);
 		
 	}
-		if (b==true) {
-			access = new realAccess(userName);
-			access.display();	
-		}
-		else {
-			System.out.println("Error");
-		}
+	public void display()
+	{ 
+		access = new realAccess(userName);
+		access.display();	
 	}
 }
