@@ -1,8 +1,9 @@
 package iterator;
 
-public class container implements Icontainer, Istockiterate {
-	String arr[] = {"Market Stock" ,"Add Product","Remove Product"};
+public class container implements Icontainer, Istockiterate , getstategy{
+	String arr[] = {"Market Stock" ,"Use Strategies"};
 	String stock[] = {"Chipsy" ,"Biscuts","Gum"};
+	String strategy[] = {"Winter Strategy","Summer Strategy"};
 	@Override
 	public Iiterator getIterator() {
 		return new iterator();
@@ -10,6 +11,10 @@ public class container implements Icontainer, Istockiterate {
 	@Override 
 	public Iiterator getproducts() {
 		return new stockiterator();
+	};
+	@Override 
+	public Iiterator getstrategy() {
+		return new strategies();
 	};
 	
 	private class iterator implements Iiterator {
@@ -36,7 +41,7 @@ public class container implements Icontainer, Istockiterate {
 		int index;
 		@Override
 		public boolean hasNext() {
-			if(index<arr.length) {
+			if(index<stock.length) {
 				return true;
 			}
 			return false;
@@ -46,6 +51,26 @@ public class container implements Icontainer, Istockiterate {
 			if(this.hasNext()) {
 				
 				return stock[index++];
+				
+			}
+			return null;
+		}
+		
+	}
+	private class strategies implements Iiterator {
+		int index;
+		@Override
+		public boolean hasNext() {
+			if(index<strategy.length) {
+				return true;
+			}
+			return false;
+		}
+		@Override 
+		public Object next() {
+			if(this.hasNext()) {
+				
+				return strategy[index++];
 				
 			}
 			return null;
